@@ -37,9 +37,9 @@ const Header: FC = () => {
             <div className="flex absolute z-30 md:hidden bg-[#FFF] left-2 top-[45px] rounded-lg w-auto h-auto p-[20px]  border border-1">
               <ul className="flex flex-col justify-start items-start gap-3 ">
                 {navigationList &&
-                  navigationList.map((page) => {
+                  navigationList.map((page, idx) => {
                     return (
-                      <li>
+                      <li key={idx}>
                         <button onClick={() => handleClickLinkButton(page.path)}>
                           {page.text}
                         </button>
@@ -51,9 +51,9 @@ const Header: FC = () => {
           )}
           <div className="p-2 hidden md:flex items-start md:bg-[#FFF] border border-b-green-100 gap-4">
             {navigationList &&
-              navigationList.map((page) => {
+              navigationList.map((page, idx) => {
                 return (
-                  <div className="hover:underline hover:underline-offset-4">
+                  <div className="hover:underline hover:underline-offset-4" key={idx}>
                     <Link to={page.path}>{page.text}</Link>
                   </div>
                 );
