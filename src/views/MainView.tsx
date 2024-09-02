@@ -1,7 +1,13 @@
 import { FC } from "react";
 
 const MainView: FC = () => {
-  return <>메인페이지</>;
+  return (
+    <>
+      <div>
+        <div>메인페이지</div>
+      </div>
+    </>
+  );
 };
 
 export default MainView;

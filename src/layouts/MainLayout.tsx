@@ -9,10 +9,10 @@ import Footer from "../components/Footer";
 const MainLayout: React.FC = () => {
   return (
     <>
-      <div className="flex flex-col h-[100vh]">
+      <div className="flex flex-col h-[100vh] w-full overflow-hidden">
         {/* <div className="flex flex-col h-[100vh]"> */}
         <Header />
-        <div className="flex flex-1 overflow-y-hidden">
+        <div className="flex flex-1 p-3">
           <Outlet />
         </div>
         <Footer />
