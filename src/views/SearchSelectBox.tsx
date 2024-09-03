@@ -78,11 +78,8 @@ const SearchSelectBox: FC = () => {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row w-full">
-        <div
-          className="relative  max-w-[1000px] md:w-[300px] h-[75px]"
-          onBlur={handleBlur}
-          tabIndex={-1}>
+      <div className="flex flex-col w-full">
+        <div className="relative md:w-[300px] h-[75px]" onBlur={handleBlur} tabIndex={-1}>
           <div className="relative flex">
             <input
               type="text"
@@ -118,25 +115,27 @@ const SearchSelectBox: FC = () => {
             </ul>
           )}
         </div>
-        <div className="pt-[200px] md:pl-10 md:pt-0 md:w-[500px]">
-          <div className="flex gap-1">
-            FOCUS SATATUS :
-            {inputFocus ? (
-              <div className="text-[green]">TURE</div>
-            ) : (
-              <div className="text-[red]">FALSE</div>
-            )}
-          </div>
-          <div>
-            FILTERD OPTION LIST : {filteredOptions.length == 0 ? "EMPTY" : filteredOptions.length}
-          </div>
-          <div className="flex gap-1">
-            VALIDATION CHECK :
-            {checkValue ? (
-              <div className="text-[green]">SUCCESS</div>
-            ) : (
-              <div className="text-[red]">FAIL</div>
-            )}
+        <div className="flex flex-1 items-end">
+          <div className="">
+            <div className="flex gap-1">
+              FOCUS SATATUS :
+              {inputFocus ? (
+                <div className="text-[green]">TURE</div>
+              ) : (
+                <div className="text-[red]">FALSE</div>
+              )}
+            </div>
+            <div>
+              FILTERD OPTION LIST : {filteredOptions.length == 0 ? "EMPTY" : filteredOptions.length}
+            </div>
+            <div className="flex gap-1">
+              VALIDATION CHECK :
+              {checkValue ? (
+                <div className="text-[green]">SUCCESS</div>
+              ) : (
+                <div className="text-[red]">FAIL</div>
+              )}
+            </div>
           </div>
         </div>
       </div>
