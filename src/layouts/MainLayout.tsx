@@ -12,7 +12,7 @@ const MainLayout: React.FC = () => {
       <div className="flex flex-col h-[100vh] w-full overflow-hidden">
         {/* <div className="flex flex-col h-[100vh]"> */}
         <Header />
-        <div className="flex flex-1 p-3">
+        <div className="flex flex-1 p-3 overflow-y-hidden">
           <Outlet />
         </div>
         <Footer />

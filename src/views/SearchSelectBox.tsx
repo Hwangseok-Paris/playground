@@ -119,22 +119,18 @@ const SearchSelectBox: FC = () => {
           <div className="">
             <div className="flex gap-1">
               FOCUS SATATUS :
-              {inputFocus ? (
-                <div className="text-[green]">TURE</div>
-              ) : (
-                <div className="text-[red]">FALSE</div>
-              )}
+              <span className={`${inputFocus ? "text-[green]" : "text-[red]"}`}>
+                {inputFocus ? "TURE" : "FALSE"}
+              </span>
             </div>
             <div>
               FILTERD OPTION LIST : {filteredOptions.length == 0 ? "EMPTY" : filteredOptions.length}
             </div>
             <div className="flex gap-1">
               VALIDATION CHECK :
-              {checkValue ? (
-                <div className="text-[green]">SUCCESS</div>
-              ) : (
-                <div className="text-[red]">FAIL</div>
-              )}
+              <span className={`${checkValue ? "text-[green]" : "text-[red]"}`}>
+                {checkValue ? "SUCCESS" : "FAIL"}
+              </span>
             </div>
           </div>
         </div>
