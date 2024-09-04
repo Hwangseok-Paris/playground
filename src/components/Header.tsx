@@ -25,7 +25,26 @@ const Header: FC = () => {
         <div className="flex relative w-full  flex-col bg-[blue]/30 md:bg-[green]/30 transition-colors duration-1000 ease-out">
           <div className="flex h-[40px] w-full p-2 justify-center items-center md:justify-start">
             <div className="flex md:hidden absolute left-[10px] ">
-              <button className="flex " onClick={handleMenuButton}>
+              <button className="flex" onClick={handleMenuButton}>
+                {/* <div className="flex items-center justify-center h-10 w-10">
+                  <div className="relative w-8 h-8 flex flex-col justify-center items-center space-y-1.5 cursor-pointer">
+                    <span
+                      className={`block h-0.5 w-full bg-gray-800 rounded transition-transform duration-300 ease-in-out ${
+                        menuList ? "rotate-45 translate-y-2" : ""
+                      }`}
+                    />
+                    <span
+                      className={`block  h-0.5 w-full bg-gray-800 rounded transition-opacity duration-300 ease-in-out ${
+                        menuList ? "opacity-0" : ""
+                      }`}
+                    />
+                    <span
+                      className={`block  h-0.5 w-full bg-gray-800 rounded transition-transform duration-300 ease-in-out ${
+                        menuList ? "-rotate-45 -translate-y-2" : ""
+                      }`}
+                    />
+                  </div>
+                </div> */}
                 <Bars3Icon className="size-6" />
               </button>
             </div>

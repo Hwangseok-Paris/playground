@@ -6,7 +6,7 @@ const ScrollView: FC = () => {
 
   return (
     <>
-      <div ref={scrollContainerRef} className="w-full h-full overflow-y-scroll">
+      <div ref={scrollContainerRef} className="w-full h-full overflow-y-auto">
         <ScrollIndicator scrollContainerRef={scrollContainerRef} />
         <div className="w-full h-auto">
           <div className="">
