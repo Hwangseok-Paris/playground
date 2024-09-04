@@ -1,17 +1,20 @@
-import { FC, useState, useEffect, useRef } from "react";
+import { FC, useState, useEffect, useCallback } from "react";
 
 interface scrollContainerProps {
   scrollContainerRef: React.RefObject<HTMLDivElement>;
+  color?: string;
 }
 
-const ScrollIndigator: FC<scrollContainerProps> = ({ scrollContainerRef }) => {
+const ScrollIndicator: FC<scrollContainerProps> = ({
+  scrollContainerRef,
+  color = "bg-slate-500",
+}) => {
   //   const [isVisible, setIsVisible] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
   //   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const onScroll = () => {
+  const onScroll = useCallback(() => {
     if (!scrollContainerRef.current) return;
-    console.log("scroll");
     const SCROLL_TOP = scrollContainerRef.current.scrollTop;
     const SCROLL_HEIGHT = scrollContainerRef.current.scrollHeight;
     const CLIENT_HEIGHT = scrollContainerRef.current.clientHeight;
@@ -19,28 +22,26 @@ const ScrollIndigator: FC<scrollContainerProps> = ({ scrollContainerRef }) => {
     // const SCROLL_HEIGHT = document.documentElement.scrollHeight;
     // const CLIENT_HEIGHT = document.documentElement.clientHeight;
 
-    console.log(SCROLL_TOP, SCROLL_HEIGHT, CLIENT_HEIGHT);
     const scrolledHeight = (SCROLL_TOP / (SCROLL_HEIGHT - CLIENT_HEIGHT)) * 100;
     setScrollTop(scrolledHeight);
     // if (SCROLL_TOP > 78) setIsVisible(true);
     // else setIsVisible(false);
     // console.log(scrolledHeight);
-  };
+  }, [scrollContainerRef]);
 
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
 
     if (scrollContainer) {
-      console.log("USE EFFECT!!");
       scrollContainer.addEventListener("scroll", onScroll);
       return () => {
         if (scrollContainer) {
-          console.log("CLEAN UP EVENTLISTENER!!");
+          // console.log("CLEAN UP EVENTLISTENER!!");
           scrollContainer.removeEventListener("scroll", onScroll);
         }
       };
     }
-  }, []);
+  }, [onScroll, scrollContainerRef]);
   //   useEffect(() => {
   //     console.log("USE EFFECT!!");
   //     window.addEventListener("scroll", onScroll);
@@ -52,11 +53,11 @@ const ScrollIndigator: FC<scrollContainerProps> = ({ scrollContainerRef }) => {
 
   return (
     <>
-      <div className="w-full fixed top-[37px] md:top-[77px] bg-[#FFF] h-[3px] z-[99] right-2 left-0">
-        <div className={`bg-teal-400 h-[3px]`} style={{ width: `${scrollTop}%` }} />
+      <div className="w-full absolute top-[37px] md:top-[77px] bg-[#FFF] h-[3px] z-[99] right-2 left-0">
+        <div className={`${color} h-[3px]`} style={{ width: `${scrollTop}%` }} />
       </div>
     </>
   );
 };
 
-export default ScrollIndigator;
+export default ScrollIndicator;

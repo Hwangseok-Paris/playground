@@ -4,7 +4,7 @@ const navigationList = [
     path: "/pg1",
   },
   {
-    text: "SELECT BOX 2",
+    text: "SCROLL INDICATOR",
     path: "/pg2",
   },
 ];

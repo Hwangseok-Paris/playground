@@ -1,5 +1,5 @@
 import { FC, useRef } from "react";
-import ScrollIndigator from "@/components/ScrollIndigator";
+import ScrollIndicator from "@/components/ScrollIndicator";
 
 const ScrollView: FC = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -7,7 +7,7 @@ const ScrollView: FC = () => {
   return (
     <>
       <div ref={scrollContainerRef} className="w-full h-full overflow-y-scroll">
-        <ScrollIndigator scrollContainerRef={scrollContainerRef} />
+        <ScrollIndicator scrollContainerRef={scrollContainerRef} />
         <div className="w-full h-auto">
           <div className="">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia facere placeat quasi
